@@ -1,0 +1,39 @@
+.contacts__main {
+  flex: 1;
+  padding-top: 60px;
+  margin: 0px;
+}
+
+.contacts__content {
+  max-width: 1280px;
+  margin: 0px auto;
+  padding: 48px 24px;
+}
+
+.contacts__title {
+  margin: 0px 0px 24px 0px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #f5f5f5;
+}
+
+.contacts__info-block {
+  /* расширяем блок до правого края содержимого страницы */
+  max-width: none;
+  width: 100%;
+  margin: 0px 0px 32px 0px;
+  padding: 32px 40px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.contacts__info-block:last-child {
+  margin-bottom: 0px;
+}
+
+.contacts__info-text {
+  margin: 0px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #213547;
+}
