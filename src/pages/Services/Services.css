@@ -315,6 +315,7 @@
 
   .services__media-text {
     min-width: 0;
+    width: 772px;
   }
 
   /* Make the media-wrap the positioning context and constrain text/table
