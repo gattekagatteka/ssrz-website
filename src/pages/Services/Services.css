@@ -144,7 +144,6 @@
 }
 
 .services__info-block {
-  /* расширяем блок до правого края содержимого страницы */
   max-width: none;
   width: 100%;
   margin: 0px;
@@ -154,8 +153,7 @@
 }
 
 .services__info-block::after {
-  /* clearfix to contain floated figures */
-  content: '';
+  content: ''; 
   display: table;
   clear: both;
 }
@@ -240,7 +238,6 @@
 }
 
 .services__th {
-  /* Цвет заголовков таблиц приведён к цвету header */
   background: #053b50;
   color: #ffffff;
   text-align: left;
@@ -269,7 +266,6 @@
   margin-top: 6px;
   font-size: 12px;
   color: #6b6b6b;
-  /* мелкий серый шрифт */
   text-align: center;
 }
 
@@ -283,13 +279,10 @@
     grid-template-columns: 1fr 360px;
     gap: 20px;
     align-items: stretch;
-    /* stretch so right column matches left height */
   }
 
   .services__media-content {
-    /* основной текст/таблица слева */
     min-width: 0;
-    /* allow children to shrink properly inside grid */
   }
 
   .services__figure {
@@ -303,7 +296,6 @@
     gap: 12px;
     height: 100%;
     justify-content: space-between;
-    /* distribute figures evenly across column */
   }
 
   .services__media-wrap {
@@ -318,8 +310,6 @@
     width: 772px;
   }
 
-  /* Make the media-wrap the positioning context and constrain text/table
-     width so content never flows under the absolutely positioned image column. */
   .services__media-wrap {
     display: grid;
     grid-template-columns: 1fr 360px;
@@ -384,10 +374,9 @@
 }
 
 @media (min-width: 900px) {
-  /* на широких экранах используем grid (.services__media-row) — float удалён */
-}
+} 
 
-/* hover и интерактивность для картинок */
+
 .services__figure img {
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -399,7 +388,7 @@
   cursor: pointer;
 }
 
-/* Lightbox */
+
 .lightbox {
   position: fixed;
   inset: 0;

@@ -25,7 +25,6 @@
 }
 
 .about__info-block {
-  /* расширяем блок до правого края содержимого страницы */
   max-width: none;
   width: 100%;
   margin: 0px 0px 32px 0px;
