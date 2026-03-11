@@ -141,17 +141,6 @@ const services = [
       </svg>
     ),
   },
-  {
-    id: 'prochie-uslugi',
-    title: 'Прочие услуги',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-        <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" strokeWidth="2" />
-        <path d="M16 20h16M16 26h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M24 14v20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-    ),
-  },
 ]
 
 function Services() {
@@ -659,33 +648,6 @@ function Services() {
                 <p className="services__info-text">
                   Нашими партнерами были: ООО «Технология», ЗАО «ПО Технорос» и ООО «Запсибгазпром-Газификация», с которыми мы продолжаем сотрудничество и сейчас.
                 </p>
-              </div>
-            </section>
-
-            <section id="prochie-uslugi" className="services__detail">
-              <h2 className="services__detail-title">Прочие услуги</h2>
-
-              <div className="services__info-block">
-                <p className="services__info-text">
-                  Помимо основных видов деятельности наш завод готов предложить своим партнерам следующие виды услуг:
-                </p>
-
-                <ul className="services__info-list">
-                  <li className="services__info-item">Восстановление деталей СЗЧ.</li>
-                  <li className="services__info-item">Точная автоматизированная резка листового проката толщиной до 60 мм.</li>
-                  <li className="services__info-item">Автотранспортные услуги.</li>
-                  <li className="services__info-item">Зачистка топливных танков.</li>
-                  <li className="services__info-item">Сбор лояльных вод.</li>
-                  <li className="services__info-item">Бункеровка водой.</li>
-                  <li className="services__info-item">Оформление автотранспорта.</li>
-                  <li className="services__info-item">Навигационный ремонт судов в межрейсовом режиме (г. Владивосток).</li>
-                  <li className="services__info-item">Морское агентирование.</li>
-                  <li className="services__info-item">Снабжение судов.</li>
-                  <li className="services__info-item">Услуги плавучего крана.</li>
-                  <li className="services__info-item">Конструкторские услуги.</li>
-                  <li className="services__info-item">Технологические услуги.</li>
-                  <li className="services__info-item">Производство и реализация углекислоты, кислорода и ацетилена в баллонах.</li>
-                </ul>
               </div>
             </section>
           </div>

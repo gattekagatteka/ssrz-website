@@ -8,6 +8,7 @@
   max-width: 1280px;
   margin: 0px auto;
   padding: 48px 24px;
+  animation: riseUp 600ms ease-out forwards;
 }
 
 @keyframes riseUp {
@@ -60,20 +61,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.services__card:nth-child(1) {
-  animation-delay: 200ms;
-}
-
-.services__card:nth-child(2) {
-  animation-delay: 400ms;
-}
-
-.services__card:nth-child(3) {
-  animation-delay: 600ms;
-}
-
+.services__card:nth-child(1),
+.services__card:nth-child(2),
+.services__card:nth-child(3),
 .services__card:nth-child(4) {
-  animation-delay: 800ms;
+  animation-delay: 100ms;
 }
 
 .services__card-icon {
@@ -116,24 +108,6 @@
 
 .services__detail {
   scroll-margin-top: 80px;
-  opacity: 0;
-  animation: riseUp 600ms ease-out forwards;
-}
-
-.services__detail:nth-child(1) {
-  animation-delay: 800ms;
-}
-
-.services__detail:nth-child(2) {
-  animation-delay: 1000ms;
-}
-
-.services__detail:nth-child(3) {
-  animation-delay: 1200ms;
-}
-
-.services__detail:nth-child(4) {
-  animation-delay: 1400ms;
 }
 
 .services__detail-title {
@@ -141,6 +115,8 @@
   font-size: 24px;
   font-weight: 600;
   color: #f5f5f5;
+  opacity: 0;
+  animation: riseUp 600ms ease-out forwards;
 }
 
 .services__info-block {
@@ -150,6 +126,8 @@
   padding: 32px 40px;
   background-color: #f5f5f5;
   border-radius: 4px;
+  opacity: 0;
+  animation: riseUp 600ms ease-out forwards;
 }
 
 .services__info-block::after {

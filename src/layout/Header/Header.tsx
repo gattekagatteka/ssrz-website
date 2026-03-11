@@ -36,12 +36,23 @@ function Header() {
           <Link to="/services" className="header__link">
             Услуги
           </Link>
+          <Link to="/opportunities" className="header__link">
+            Наши возможности
+          </Link>
           <Link to="/about" className="header__link">
             О нас
           </Link>
           <Link to="/contacts" className="header__link">
             Контакты
           </Link>
+          <a
+            className="header__link"
+            href="https://www.disclosure.ru/issuer/2531001535/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Раскрытие информации
+          </a>
 
           <button
             type="button"
@@ -72,12 +83,18 @@ function Header() {
             </button>
 
             <div className="burger__nav">
-              <button type="button" className="burger__item">Название раздела</button>
-              <button type="button" className="burger__item">Название раздела</button>
-              <button type="button" className="burger__item">Название раздела</button>
-              <button type="button" className="burger__item">Название раздела</button>
-              <button type="button" className="burger__item">Название раздела</button>
-              <button type="button" className="burger__item">Название раздела</button>
+              <Link to="/services" className="burger__item" onClick={closeMenu}>
+                Услуги
+              </Link>
+              <Link to="/opportunities" className="burger__item" onClick={closeMenu}>
+                Наши возможности
+              </Link>
+              <Link to="/about" className="burger__item" onClick={closeMenu}>
+                О нас
+              </Link>
+              <Link to="/contacts" className="burger__item" onClick={closeMenu}>
+                Контакты
+              </Link>
             </div>
 
             <div className="burger__footer">текст</div>
