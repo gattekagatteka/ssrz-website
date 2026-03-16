@@ -1,28 +1,28 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/logo.png'
-import './Header.css'
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import "./Header.css";
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!menuOpen) return
+    if (!menuOpen) return;
 
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuOpen(false)
-    }
+      if (e.key === "Escape") setMenuOpen(false);
+    };
 
-    document.addEventListener('keydown', onKeyDown)
-    document.body.style.overflow = 'hidden'
+    document.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = ''
-    }
-  }, [menuOpen])
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
-  const closeMenu = () => setMenuOpen(false)
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header className="header">
@@ -33,6 +33,7 @@ function Header() {
         </Link>
 
         <nav className="header__nav">
+
           <Link to="/about" className="header__link">
             О нас
           </Link>
@@ -70,7 +71,10 @@ function Header() {
 
       {menuOpen && (
         <div className="burger" role="dialog" aria-modal="true">
-          <div className="burger__backdrop" onClick={() => setMenuOpen(false)} />
+          <div
+            className="burger__backdrop"
+            onClick={() => setMenuOpen(false)}
+          />
 
           <div className="burger__panel">
             <button
@@ -86,7 +90,11 @@ function Header() {
               <Link to="/services" className="burger__item" onClick={closeMenu}>
                 Услуги
               </Link>
-              <Link to="/opportunities" className="burger__item" onClick={closeMenu}>
+              <Link
+                to="/opportunities"
+                className="burger__item"
+                onClick={closeMenu}
+              >
                 Наши возможности
               </Link>
               <Link to="/about" className="burger__item" onClick={closeMenu}>
@@ -102,7 +110,7 @@ function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;
