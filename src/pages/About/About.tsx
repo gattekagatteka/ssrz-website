@@ -1,21 +1,412 @@
+import { useState, useEffect } from 'react'
 import Header from '../../layout/Header/Header'
 import Footer from '../../layout/Footer/Footer'
 import './About.css'
+import history01 from '../../assets/history_01.jpg'
+import lakiza from '../../assets/lakiza.jpg'
+import lihter from '../../assets/lihter.jpg'
+import ReactMarkdown from 'react-markdown'
+import personalPolicy from '../../content/policies/personal.md?raw'
+import qualityPolicy from '../../content/policies/quality.md?raw'
+
+const vacancies = [
+  'Сменный электромеханик (судовой)',
+  'Сменный механик (судовой)',
+  'Машинист крана (крановщик)',
+  'Маляры судовые',
+  'Судокорпусники-ремонтники',
+  'Слесари-судоремонтники',
+  'Столяры судовые',
+  'Слесари-ремонтники',
+  'Трубопроводчики судовые',
+  'Токари',
+  'Токарь-расточник',
+  'Такелажники судовые',
+  'Фрезеровщики',
+  'Электросварщики',
+  'Электрогазосварщики',
+  'Электромонтажники судовые',
+  'Электромонтеры по ремонту и обслуживанию электрооборудования',
+]
+
+const policies = [
+  { id: 'policy-1', title: 'Политика в области качества', md: qualityPolicy },
+  { id: 'policy-2', title: 'Политика обработки персональных данных', md: personalPolicy },
+]
 
 function About() {
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null)
+  const [lightboxAlt, setLightboxAlt] = useState<string>('')
+
+  useEffect(() => {
+    if (!lightboxSrc) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxSrc(null)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [lightboxSrc])
+
+  const openLightbox = (src: string, alt = '') => {
+    setLightboxSrc(src)
+    setLightboxAlt(alt)
+  }
+
+  const closeLightbox = () => setLightboxSrc(null)
+
+  const mdComponents = {
+    p: (props: any) => <p className="about__info-text" {...props} />,
+    h1: (props: any) => <h3 className="about__info-subtitle" {...props} />,
+    h2: (props: any) => <h3 className="about__info-subtitle" {...props} />,
+    h3: (props: any) => <h4 className="about__info-subtitle" {...props} />,
+    h4: (props: any) => <h4 className="about__info-subtitle" {...props} />,
+    ul: (props: any) => <ul className="about__info-list" {...props} />,
+    ol: (props: any) => <ol className="about__info-list" {...props} />,
+    li: (props: any) => <li className="about__info-item" {...props} />,
+    a: (props: any) => <a className="about__vacancies-note-link" {...props} />,
+  }
+
   return (
     <>
       <Header />
       <main className="about__main">
         <section className="about__content">
           <h1 className="about__title">О нас</h1>
-          <div className="about__info-block">
-            <p className="about__info-text">
-              Здесь будет информация о предприятии
-            </p>
-          </div>
+
+          <nav className="about__nav-section">
+            <p className="about__nav-label">На этой странице:</p>
+            <div className="about__nav">
+              <a href="#history" className="about__nav-link">История завода</a>
+              <a href="#today" className="about__nav-link">ССРЗ сегодня</a>
+              <a href="#vacancies" className="about__nav-link">Вакансии</a>
+              <a href="#policies" className="about__nav-link">Политики предприятия</a>
+              <a href="#security" className="about__nav-link">Транспортная безопасность</a>
+              <a href="#productivity" className="about__nav-link">Производительность труда и поддержка занятости</a>
+              <a href="#quality" className="about__nav-link">Система менеджмента качества</a>
+            </div>
+          </nav>
+
+          <section id="history" className="about__detail">
+            <h2 className="about__detail-title">История завода</h2>
+
+            <div className="about__info-block">
+              <div className="about__media-wrap">
+                <div className="about__media-text">
+                  <p className="about__info-text">
+                    В соответствии с приказом Министра ММФ СССР № 197 от 19 сентября 1964 года для осуществления руководства организована дирекция строящегося
+                    судоремонтного завода в бухте Славянка, которую возглавил Карамушко Фёдор Дмитриевич.
+                  </p>
+
+                  <p className="about__info-text">
+                    Особенность становления будущего завода заключалась в том, что он начал действовать, выполнять государственный план и наращивать мощности, когда
+                    все производственные площадки завода находились в стадии строительства.
+                  </p>
+
+                  <p className="about__info-text">
+                    С завершением строительства части объектов первой очереди завода, с вводом в эксплуатацию производственных мощностей блока цехов № 1 и организацией
+                    ремонта судов ДВМП в Славянке приказом Министра морского флота Т.Б. Гуженко № 47 от 6 апреля 1970 года создан Славянский судоремонтный завод на
+                    самостоятельном балансе с подчинением Дальневосточному пароходству. 1970 год — год рождения завода.
+                  </p>
+
+                  <p className="about__info-text">С декабря 1971 года Славянский СРЗ возглавил Максимов Михаил Матвеевич.</p>
+
+                  <h3 className="about__info-subtitle">Ключевые вехи</h3>
+                  <ul className="about__info-list">
+                    <li className="about__info-item">1970 — создан Славянский судоремонтный завод на самостоятельном балансе.</li>
+                    <li className="about__info-item">1971 — назначен директор Максимов М.М.</li>
+                    <li className="about__info-item">1973 — заложена и спущена на воду первая самоходная баржа «Восток».</li>
+                    <li className="about__info-item">1977 — установлен второй плавучий док грузоподъёмностью 30 000 тонн.</li>
+                  </ul>
+
+                  <p className="about__info-text">
+                    4 мая 1973 года была заложена первая самоходная баржа «Восток», а 26 декабря этого же года она была спущена на воду. К концу 9-й пятилетки
+                    (1971–1975 гг.) барж «Восток» было построено 26 единиц.
+                  </p>
+
+                  <p className="about__info-text">
+                    В эти годы за трудовые достижения коллективу завода неоднократно присуждаются первые места по итогам социалистического соревнования.
+                  </p>
+
+                  <p className="about__info-text">
+                    В коллективе появились первые орденоносцы. За успешное выполнение плана 9-й пятилетки орденом «Трудового Красного Знамени» был награждён
+                    бригадир слесарей-судоремонтников Лакиза К.С. (фото), орденом «Знак Почёта» — бригадир корпусников-ремонтников Нефанский В.И. Получили
+                    высокие правительственные награды и другие работники.
+                  </p>
+
+                  <p className="about__info-text">
+                    К середине 70-х завод становится современным судоремонтным предприятием, способным решать практически любые технические вопросы судоремонта,
+                    оснащенным современным технологическим оборудованием с развитой организацией труда и квалифицированными кадрами рабочих и инженерно-технических
+                    специалистов.
+                  </p>
+
+                  <p className="about__info-text">
+                    В мае 1977 года на акватории завода устанавливается второй плавучий док, пришедший из Югославии, грузоподъёмностью 30 000 тонн — в те годы
+                    крупнейший на Дальнем Востоке. В декабре 1978 года славянские судоремонтники впервые отдоковали в нём ледоколы «Ленинград» и «Адмирал Макаров».
+                    В 1977 году на заводе приступили к выпуску нового вида продукции — строительству плавучих причалов специального назначения, которых было
+                    построено 12 единиц, и барж-площадок проекта 1735 грузоподъёмностью 400 тонн. Головной образец баржи-площадки был сдан в 1978 году. В 1979 году
+                    приступили к строительству новой самоходной баржи «Славянка», одновременно продолжая выпуск барж «Восток».
+                  </p>
+
+                  <p className="about__info-text">
+                    Впервые с 1977 года Славянский СРЗ по планам внутриминистерской кооперации начал изготавливать сменно-запасные части (СЗЧ) двигателей внутреннего
+                    сгорания и выпускать продукцию машиностроения — грейфера, торцевальные и точковочные станки, контейнеры-волокуши, а также производить товары
+                    культурно-бытового назначения и хозяйственного обихода.
+                  </p>
+
+                  <p className="about__info-text">
+                    Наращивая темпы производства не забывалось и о качестве выпускаемой продукции. Уже в 1972 году на заводе внедряется система бездефектного
+                    изготовления продукции, а с 1977 года начала разрабатываться и внедряться комплексная система управления качеством продукции. Это позволило
+                    довести процент сдачи продукции с 93% в 1972 году до 98,4% в 1979 году. В те годы с заводским «Аттестатом качества» выпускалось четыре изделия и
+                    два технологических процесса.
+                  </p>
+
+                  <p className="about__info-text">
+                    Прошли большой творческий путь строители А.М. Мельниченко, А.И. Лавренов, Н.В. Шишкарёв, С.С. Казанко, А.А. Бузин. От рядовых мастеров до
+                    заместителей начальников подразделений дошли Ю.Н. Сидоров, П.Г. Курский, А.М. Малиновский, В.Г. Прибытков. Свой трудовой путь начинали с
+                    мастеров и достигли должностей руководителей основными цехами Б.М. Артюхов, Ю.Ф. Иванов, В.В. Корягин, Ю.А. Яковлев, Г.В. Апанасенко. До
+                    главных специалистов и руководителей — В.И. Сидоров, Н.В. Бабаков, А.Л. Смирнов.
+                  </p>
+
+                  <p className="about__info-text">
+                    Росли и комплектовались производственные бригады, совершенствовалось мастерство, закладывался фундамент заводских успехов трудом многих
+                    замечательных рабочих, кто служил примером молодым рабочим, пришедшим из ГПТУ и школ.
+                  </p>
+
+                  <p className="about__info-text">
+                    В судостроении планировалось освоение выпуска рейдовых катеров, судов на воздушной подушке, строительство цеха-завода по выпуску лихтеров типа
+                    ЛЭШ с программой выпуска 120 лихтеров в год.
+                  </p>
+
+                  <p className="about__info-text">
+                    Строительство лихтерного комплекса было начато в 1981 году по финскому проекту с участием финнов.
+                  </p>
+
+                  <p className="about__info-text">
+                    В 1981 году Славянский СРЗ за высокие показатели в труде занесён на Всесоюзную Доску Почёта ВДНХ СССР, награждён переходящим Красным знаменем
+                    ЦК КПСС, Совета Министров и ЦК ВЛКСМ и трижды награждался по итогам кварталов знаменем Министерства морского флота. Переходящим Красным знаменем
+                    ММФ завод трижды награждался и в 1982 году.
+                  </p>
+
+                  <p className="about__info-text">
+                    С 1983 года директора Максимов Михаила Матвеевича перевели главным инженером Дальневосточного Морского Пароходства, и завод возглавил Жан
+                    Андреевич Мазница.
+                  </p>
+
+                  <p className="about__info-text">
+                    В 1984 году на завод для ремонта прибыло тысячное судно — теплоход «Ольга Садовская».
+                  </p>
+
+                  <p className="about__info-text">
+                    В эти годы разработана, утверждена и зарегистрирована «Комплексная система управления качеством продукции». Её цель — обеспечение соответствия
+                    качества продукции и услуг технической документации и Правилам Морского Регистра Судоходства.
+                  </p>
+
+                  <p className="about__info-text">
+                    На заводе существуют более 60 видов профессий и специальностей, что позволяет производить комплексный ремонт судов, действуют 159 бригад основного
+                    и вспомогательного производства.
+                  </p>
+
+                  <p className="about__info-text">
+                    В 1988 году из Югославии подошёл 3-й плавучий док грузоподъёмностью 36 000 тонн. Подход этого крупнейшего на Дальнем Востоке дока дал
+                    возможность производить докование судов любого класса и любого водоизмещения, имеемых в составе флота Российской Федерации, — вплоть до
+                    докования лихтеровозов с атомными силовыми установками.
+                  </p>
+
+                  <p className="about__info-text">
+                    В эти годы, наряду с судостроением и судоремонтом, завод продолжает заниматься производством сменно-запасных частей для двигателей внутреннего
+                    сгорания, гребных валов для крупно-тоннажных судов, гребных винтов, средств механизации для погрузочно-разгрузочных работ в морских портах.
+                    Например: зерноперегружатели, точковочные станки, грузовые площадки, грейфера для разгрузки и погрузки сыпучих грузов грузоподъёмностью 3 и 5
+                    тонн.
+                  </p>
+
+                  <p className="about__info-text">
+                    С февраля 1990 года на заводе в цехе 02 начал функционировать участок станков с цифровым программным управлением. По подсчётам специалистов
+                    производительность станочного парка здесь в трое выше обычной. Организационную работу по созданию участка, планированию, заказу станков и их
+                    размещению провёл инженер бюро развития производства М.Ф. Купера.
+                  </p>
+
+                  <p className="about__info-text">
+                    В начале 1993 года завершился первый этап преобразования предприятия — с 15 февраля завод стал Акционерным Обществом Открытого Типа.
+                  </p>
+
+                  <p className="about__info-text">
+                    Прорабатываются вопросы строительства специализированного перегрузочного комплекса, вопрос перевалки и бункеровки судов нефтепродуктами.
+                    Совместно с Администрацией Приморского края готовятся документы для рассмотрения в правительстве РФ об открытии Славянки для захода судов под
+                    иностранным флагом.
+                  </p>
+
+                  <p className="about__info-text">
+                    В 1995 году завод получил Сертификат, удостоверяющий вхождение в состав 5 тысяч ведущих предприятий со статусом «Лидер российской экономики».
+                  </p>
+
+                  <p className="about__info-text">
+                    В 1997 году наращивались объёмы услуг «Порта» по перевалке коммерческих грузов. Выросли объёмы по выгрузке автомобилей и портовым сборам (1997
+                    год — 1 223 тыс.руб.; 1998 год — 3 410 тыс.руб.).
+                  </p>
+
+                  <p className="about__info-text">
+                    20 марта 2002 года на должность генерального директора завода назначен Басаргин Андрей Георгиевич. Вместе с ним на завод пришли работать
+                    финансовый директор Герус Людмила Алексеевна, директор по экономике Мачехин Владимир Валерьевич, коммерческий директор Гребенюк Евгений
+                    Иванович.
+                  </p>
+
+                  <p className="about__info-text">
+                    За последние годы среди предприятий судоремонтной отрасли ПАО «Славянский СРЗ» занимает первое место по рейтингу эффективности и 33 место среди
+                    100 крупнейших компаний Дальнего Востока.
+                  </p>
+
+                  <p className="about__info-text">
+                    Для увеличения объёма судоремонтных услуг ведётся работа по размещению заказов на ремонт военных судов, участию в тендерах в рамках проектов
+                    «Сахалин-1» и «Сахалин-2».
+                  </p>
+
+                  <p className="about__info-text">
+                    Усредненный анализ стоимости ремонта флота показывает, что при таком объеме ремонтируемых судов общая емкость рынка гражданского судоремонта по
+                    Дальневосточному бассейну составляет примерно 1 млрд 900 млн рублей. На основании этого можно сделать вывод, что доля Славянского СРЗ на рынке
+                    гражданского судоремонта Дальневосточного бассейна составляет 14,4%. Данный показатель является очень высоким и говорит о том, что ПАО
+                    «Славянский СРЗ» сохранил лидирующие позиции на рынке гражданского судоремонта в Дальневосточному бассейне.
+                  </p>
+                </div>
+
+                <div className="about__figure-column">
+                  <figure
+                    className="about__figure"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openLightbox(history01, 'Строительство завода, 1960-е')}
+                    onKeyDown={(e) => (e.key === 'Enter' ? openLightbox(history01, 'Строительство завода, 1960-е') : null)}
+                  >
+                    <img src={history01} alt="Строительство завода, 1960-е" />
+                    <figcaption>Строительство завода, 1960-е</figcaption>
+                  </figure>
+
+                  <figure
+                    className="about__figure"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openLightbox(lakiza, 'Лакиза К.С.')}
+                    onKeyDown={(e) => (e.key === 'Enter' ? openLightbox(lakiza, 'Лакиза К.С.') : null)}
+                  >
+                    <img src={lakiza} alt="Лакиза К.С." />
+                    <figcaption>Лакиза К.С.</figcaption>
+                  </figure>
+
+                  <figure
+                    className="about__figure"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openLightbox(lihter, 'Лихтерный комплекс, 1980-е')}
+                    onKeyDown={(e) => (e.key === 'Enter' ? openLightbox(lihter, 'Лихтерный комплекс, 1980-е') : null)}
+                  >
+                    <img src={lihter} alt="Лихтерный комплекс, 1980-е" />
+                    <figcaption>Лихтерный комплекс, 1980-е</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="today" className="about__detail">
+            <h2 className="about__detail-title">ССРЗ сегодня</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">Раздел в разработке.</p>
+            </div>
+          </section>
+
+          <section id="vacancies" className="about__detail">
+            <h2 className="about__detail-title">Вакансии</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">
+                Ниже — актуальные вакансии. Если вы хотите работать в команде ПАО «Славянский СРЗ», свяжитесь с отделом кадров.
+              </p>
+
+              <div className="about__vacancies-grid" role="list">
+                {vacancies.map((title) => (
+                  <div key={title} className="about__vacancy-card" role="listitem">
+                    <div className="about__vacancy-card-content">
+                      <div className="about__vacancy-title">{title}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="about__vacancies-note" aria-label="Контакты для трудоустройства">
+                <div className="about__vacancies-note-title">Куда обращаться</div>
+                <p className="about__vacancies-note-text">
+                  По вопросам трудоустройства обращаться в отдел кадров по тел.{' '}
+                  <a className="about__vacancies-note-link" href="tel:+74233146169">
+                    (42331) 46-1-69
+                  </a>{' '}
+                  или по электронной почте:{' '}
+                  <a className="about__vacancies-note-link" href="mailto:ok@ssrz.ru">
+                    ok@ssrz.ru
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section id="policies" className="about__detail">
+            <h2 className="about__detail-title">Политики предприятия</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">
+                Документы представлены в виде раскрывающихся разделов — выберите пункт, чтобы посмотреть текст.
+              </p>
+
+              <div className="about__accordion" role="list">
+                {policies.map((p) => (
+                  <details key={p.id} className="about__accordion-item" role="listitem">
+                    <summary className="about__accordion-summary">{p.title}</summary>
+                    <div className="about__accordion-panel">
+                      <ReactMarkdown components={mdComponents as any}>{p.md}</ReactMarkdown>
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section id="security" className="about__detail">
+            <h2 className="about__detail-title">Транспортная безопасность</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">Раздел в разработке.</p>
+            </div>
+          </section>
+
+          <section id="productivity" className="about__detail">
+            <h2 className="about__detail-title">Производительность труда и поддержка занятости</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">Раздел в разработке.</p>
+            </div>
+          </section>
+
+          <section id="quality" className="about__detail">
+            <h2 className="about__detail-title">Система менеджмента качества</h2>
+            <div className="about__info-block">
+              <p className="about__info-text">Раздел в разработке.</p>
+            </div>
+          </section>
         </section>
       </main>
+
+      {lightboxSrc && (
+        <div className="lightbox" role="dialog" aria-modal="true" onClick={closeLightbox}>
+          <div className="lightbox__backdrop" />
+          <div className="lightbox__panel" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="lightbox__close" onClick={closeLightbox} aria-label="Закрыть">
+              ×
+            </button>
+            <img src={lightboxSrc} alt={lightboxAlt} className="lightbox__img" />
+            {lightboxAlt && <div className="lightbox__caption">{lightboxAlt}</div>}
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   )

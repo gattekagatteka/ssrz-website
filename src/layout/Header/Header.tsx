@@ -33,14 +33,14 @@ function Header() {
         </Link>
 
         <nav className="header__nav">
-          <Link to="/services" className="header__link">
-            Услуги
+          <Link to="/about" className="header__link">
+            О нас
           </Link>
           <Link to="/opportunities" className="header__link">
             Наши возможности
           </Link>
-          <Link to="/about" className="header__link">
-            О нас
+          <Link to="/services" className="header__link">
+            Услуги
           </Link>
           <Link to="/contacts" className="header__link">
             Контакты

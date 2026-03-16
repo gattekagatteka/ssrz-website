@@ -1,3 +1,193 @@
+/* --- Медиа блоки и figure как на Services --- */
+.about__media-row {
+  margin: 14px 0 20px 0;
+}
+
+.about__media-wrap {
+  margin: 14px 0 20px 0;
+}
+
+@media (min-width: 900px) {
+  .about__media-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .about__media-content {
+    min-width: 0;
+  }
+
+  .about__figure {
+    margin: 0;
+    text-align: left;
+  }
+
+  .about__figure-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .about__media-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .about__media-text {
+    min-width: 0;
+    width: 100%;
+    max-width: 772px;
+  }
+}
+
+.about__figure {
+  margin: 0;
+  text-align: center;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.about__figure img {
+  width: 100%;
+  max-width: 420px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.about__figure figcaption {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+.about__figure img {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.about__figure img:hover,
+.about__figure img:focus {
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.lightbox__panel {
+  position: relative;
+  z-index: 2001;
+  max-width: 92%;
+  max-height: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 6px;
+  display: block;
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.lightbox__close:hover,
+.lightbox__close:focus-visible {
+  transform: scale(1.06);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  background-color: #f5f5f5;
+}
+
+.lightbox__caption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #dcdcdc;
+  text-align: center;
+}
+
+/* --- Навигационный блок как на Opportunities --- */
+.about__nav-section {
+  margin-bottom: 48px;
+  padding: 20px 24px;
+  background-color: rgba(245, 245, 245, 0.05);
+  border-left: 3px solid #f5f5f5;
+  border-radius: 4px;
+  opacity: 0;
+  animation: riseUp 600ms ease-out forwards;
+  animation-delay: 100ms;
+}
+
+.about__nav-label {
+  margin: 0px 0px 12px 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f5f5f5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: all 200ms ease;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  width: fit-content;
+}
+
+.about__nav-link:hover {
+  border-bottom-color: #f5f5f5;
+}
+
 .about__main {
   flex: 1;
   padding-top: 60px;
@@ -8,6 +198,7 @@
   max-width: 1280px;
   margin: 0px auto;
   padding: 48px 24px;
+  animation: riseUp 600ms ease-out forwards;
 }
 
 @keyframes riseUp {
@@ -23,9 +214,27 @@
 }
 
 .about__title {
-  margin: 0px 0px 24px 0px;
+  margin: 0px 0px 32px 0px;
   font-size: 32px;
   font-weight: 700;
+  color: #f5f5f5;
+  opacity: 0;
+  animation: riseUp 600ms ease-out forwards;
+}
+
+.about__detail {
+  scroll-margin-top: 80px;
+  margin-bottom: 32px;
+}
+
+.about__detail:last-of-type {
+  margin-bottom: 0px;
+}
+
+.about__detail-title {
+  margin: 0px 0px 16px 0px;
+  font-size: 24px;
+  font-weight: 600;
   color: #f5f5f5;
   opacity: 0;
   animation: riseUp 600ms ease-out forwards;
@@ -65,5 +274,200 @@
   margin: 0px;
   font-size: 16px;
   line-height: 1.6;
+  color: #000;
+}
+
+.about__info-text+.about__info-text {
+  margin-top: 12px;
+}
+
+.about__info-subtitle {
+  margin: 24px 0px 12px 0px;
+  font-size: 18px;
+  font-weight: 600;
   color: #213547;
+}
+
+.about__info-subtitle:first-child {
+  margin-top: 0px;
+}
+
+.about__info-list {
+  margin: 0px 0px 16px 0px;
+  padding-left: 24px;
+}
+
+.about__info-item {
+  margin: 0px 0px 8px 0px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+}
+
+.about__info-item:last-child {
+  margin-bottom: 0px;
+}
+
+.about__vacancies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.about__vacancy-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 18px 18px;
+  text-align: center;
+  min-height: 92px;
+}
+
+.about__vacancy-card:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.about__vacancy-card-content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__vacancy-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #213547;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.about__vacancies-note {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(33, 53, 71, 0.12);
+}
+
+.about__vacancies-note-title {
+  margin: 0px 0px 8px 0px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #213547;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about__vacancies-note-text {
+  margin: 0px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #213547;
+}
+
+.about__vacancies-note-link {
+  color: #213547;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(33, 53, 71, 0.35);
+  transition: opacity 200ms ease, border-color 200ms ease;
+}
+
+.about__vacancies-note-link:hover {
+  opacity: 0.85;
+  border-bottom-color: rgba(33, 53, 71, 0.65);
+}
+
+.about__accordion {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__accordion-item {
+  border: 1px solid rgba(33, 53, 71, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.about__accordion-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #213547;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition: background-color 200ms ease;
+}
+
+.about__accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.about__accordion-summary:hover {
+  background-color: rgba(33, 53, 71, 0.03);
+}
+
+.about__accordion-summary::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(33, 53, 71, 0.65);
+  border-bottom: 2px solid rgba(33, 53, 71, 0.65);
+  transform: rotate(45deg);
+  transition: transform 180ms ease;
+  flex: 0 0 auto;
+  margin-top: -2px;
+}
+
+.about__accordion-item[open] .about__accordion-summary::after {
+  transform: rotate(-135deg);
+  margin-top: 4px;
+}
+
+.about__accordion-panel {
+  padding: 12px 18px 16px 18px;
+}
+
+.about__accordion-panel ol.about__info-list {
+  list-style: decimal;
+}
+
+.about__accordion-text {
+  margin: 0px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #000;
+}
+
+.about__accordion-text+.about__accordion-text {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .about__vacancies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .about__vacancy-card {
+    padding: 16px;
+    min-height: 84px;
+  }
 }
