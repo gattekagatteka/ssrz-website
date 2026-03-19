@@ -8,6 +8,7 @@ import lihter from '../../assets/lihter.jpg'
 import ReactMarkdown from 'react-markdown'
 import personalPolicy from '../../content/policies/personal.md?raw'
 import qualityPolicy from '../../content/policies/quality.md?raw'
+import todayContent from '../../content/today.md?raw'
 
 const vacancies = [
   'Сменный электромеханик (судовой)',
@@ -32,6 +33,74 @@ const vacancies = [
 const policies = [
   { id: 'policy-1', title: 'Политика в области качества', md: qualityPolicy },
   { id: 'policy-2', title: 'Политика обработки персональных данных', md: personalPolicy },
+]
+
+const documents = [
+  {
+    title: 'Admission Rules',
+    file: '/docs/security/Admission_Rules.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Instruction',
+    file: '/docs/security/Instruction.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Mat_Propusk',
+    file: '/docs/security/Mat_Propusk.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Prikaz_220_20170602',
+    file: '/docs/security/Prikaz_220_20170602.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Prikaz_345_20191024',
+    file: '/docs/security/Prikaz_345_20191024.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Prikaz_DVTU_RG_154_20151019',
+    file: '/docs/security/Prikaz_DVTU_RG_154_20151019.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Prikaz_RG_451_20101227',
+    file: '/docs/security/Prikaz_RG_451_20101227.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-9_Mat_Propusk',
+    file: '/docs/security/Pril-9_Mat_Propusk.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-10_Lichn_Propusk_Post_Vrem',
+    file: '/docs/security/Pril-10_Lichn_Propusk_Post_Vrem.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-11_Lichn_Propusk_Raz',
+    file: '/docs/security/Pril-11_Lichn_Propusk_Raz.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-12_Mat_Propusk',
+    file: '/docs/security/Pril-12_Mat_Propusk.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-13_Transp_Propusk_Post_Vrem',
+    file: '/docs/security/Pril-13_Transp_Propusk_Post_Vrem.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Pril-14_Transp_Propusk_Raz',
+    file: '/docs/security/Pril-14_Transp_Propusk_Raz.docx',
+    type: 'doc',
+  },
 ]
 
 function About() {
@@ -313,7 +382,9 @@ function About() {
           <section id="today" className="about__detail">
             <h2 className="about__detail-title">ССРЗ сегодня</h2>
             <div className="about__info-block">
-              <p className="about__info-text">Раздел в разработке.</p>
+              <ReactMarkdown components={mdComponents as any}>
+                {todayContent}
+              </ReactMarkdown>
             </div>
           </section>
 
@@ -373,8 +444,44 @@ function About() {
 
           <section id="security" className="about__detail">
             <h2 className="about__detail-title">Транспортная безопасность</h2>
+
             <div className="about__info-block">
-              <p className="about__info-text">Раздел в разработке.</p>
+              <p className="about__info-text">
+                В разделе представлены документы, регулирующие транспортную безопасность предприятия.
+              </p>
+
+              <div className="about__docs-grid">
+                {documents.map((doc) => (
+                  <div key={doc.title} className="about__doc-card">
+                    <div className="about__doc-type">
+                      {doc.type.toUpperCase()}
+                    </div>
+
+                    <div className="about__doc-title">
+                      {doc.title}
+                    </div>
+
+                    <div className="about__doc-actions">
+                      <a
+                        href={doc.file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="about__doc-btn"
+                      >
+                        Открыть
+                      </a>
+
+                      <a
+                        href={doc.file}
+                        download
+                        className="about__doc-btn about__doc-btn--secondary"
+                      >
+                        Скачать
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 
