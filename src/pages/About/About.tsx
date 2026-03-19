@@ -9,6 +9,35 @@ import ReactMarkdown from 'react-markdown'
 import personalPolicy from '../../content/policies/personal.md?raw'
 import qualityPolicy from '../../content/policies/quality.md?raw'
 import todayContent from '../../content/today.md?raw'
+import fcc17 from '../../assets/fcc_17.jpg'
+import fcc03 from '../../assets/fcc_03.jpg'
+import fcc10 from '../../assets/fcc_10.jpg'
+import fcc11 from '../../assets/fcc_11.jpg'
+import fcc12 from '../../assets/fcc_12.jpg'
+import fcc21 from '../../assets/fcc_21.jpg'
+import fcc26 from '../../assets/fcc_26.jpg'
+import fcc27 from '../../assets/fcc_27.jpg'
+import fcc22 from '../../assets/fcc_22.jpg'
+import fcc07 from '../../assets/fcc_07.jpg'
+import fcc05 from '../../assets/fcc_05.jpg'
+import annexEng from '../../assets/certificates/annex_cert_eng.jpg'
+import annexRus from '../../assets/certificates/annex_cert_rus.jpg'
+import annexRusTranslate from '../../assets/certificates/annex_cert_rus_translate.jpg'
+
+import certEng from '../../assets/certificates/cert_eng.jpg'
+import certRus from '../../assets/certificates/cert_rus.jpg'
+import certRusTranslate from '../../assets/certificates/cert_rus_translate.jpg'
+
+import svid1 from '../../assets/certificates/svid_1.jpg'
+import svidRegistry from '../../assets/certificates/svid_registry.jpg'
+import svidResident from '../../assets/certificates/svid_resident.jpg'
+
+import licAmmo from '../../assets/certificates/lic_ammo.pdf'
+import licBuksir from '../../assets/certificates/lic_buksir.pdf'
+import licGostaina from '../../assets/certificates/lic_gostaina.jpg'
+import licRests from '../../assets/certificates/lic_rests.pdf'
+import oboroncert from '../../assets/certificates/oboroncert.pdf'
+import svidSro from '../../assets/certificates/svid_sro.pdf'
 
 const vacancies = [
   'Сменный электромеханик (судовой)',
@@ -37,69 +66,163 @@ const policies = [
 
 const documents = [
   {
-    title: 'Admission Rules',
-    file: '/docs/security/Admission_Rules.pdf',
-    type: 'pdf',
-  },
-  {
-    title: 'Instruction',
+    title: 'Инструкция о пропускном и объектовом режиме',
     file: '/docs/security/Instruction.pdf',
     type: 'pdf',
   },
   {
-    title: 'Mat_Propusk',
-    file: '/docs/security/Mat_Propusk.docx',
-    type: 'doc',
-  },
-  {
-    title: 'Prikaz_220_20170602',
-    file: '/docs/security/Prikaz_220_20170602.pdf',
+    title: 'Правила допуска на объект транспортной инфраструктуры ПАО "Славянский СРЗ" от 02.06.2017 г.',
+    file: '/docs/security/Admission_Rules.pdf',
     type: 'pdf',
   },
   {
-    title: 'Prikaz_345_20191024',
-    file: '/docs/security/Prikaz_345_20191024.pdf',
-    type: 'pdf',
-  },
-  {
-    title: 'Prikaz_DVTU_RG_154_20151019',
+    title: 'Приказ ДВТУ Росграницы № 154 от 19.10.2015',
     file: '/docs/security/Prikaz_DVTU_RG_154_20151019.pdf',
     type: 'pdf',
   },
   {
-    title: 'Prikaz_RG_451_20101227',
+    title: 'Приказ № 220 от 02.06.2017 об утверждении Правил допуска на объект транспортной инфраструктуры',
+    file: '/docs/security/Prikaz_220_20170602.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Приказ № 345 от 24.10.2019 О внесении изменений в Правила допуска',
+    file: '/docs/security/Prikaz_345_20191024.pdf',
+    type: 'pdf',
+  },
+  {
+    title: 'Приказ Росграницы № 451-ОД от 27.12.2010',
     file: '/docs/security/Prikaz_RG_451_20101227.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-9_Mat_Propusk',
+    title: 'Заявка на материальный пропуск',
+    file: '/docs/security/Mat_Propusk.docx',
+    type: 'doc',
+  },
+  {
+    title: 'Приложение 9 - Заявка на выдачу материального пропуска на ввоз-вывоз ТМЦ',
     file: '/docs/security/Pril-9_Mat_Propusk.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-10_Lichn_Propusk_Post_Vrem',
+    title: 'Приложение 10 - Заявка на пропуск личный постоянный или временный',
     file: '/docs/security/Pril-10_Lichn_Propusk_Post_Vrem.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-11_Lichn_Propusk_Raz',
+    title: 'Приложение 11 - Заявка на пропуск личный разовый',
     file: '/docs/security/Pril-11_Lichn_Propusk_Raz.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-12_Mat_Propusk',
+    title: 'Приложение 12 - Заявка на выдачу материального пропуска предметов и веществ',
     file: '/docs/security/Pril-12_Mat_Propusk.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-13_Transp_Propusk_Post_Vrem',
+    title: 'Приложение 13 - Заявка на пропуск транспортный постоянный или временный',
     file: '/docs/security/Pril-13_Transp_Propusk_Post_Vrem.docx',
     type: 'doc',
   },
   {
-    title: 'Pril-14_Transp_Propusk_Raz',
+    title: 'Приложение 14 - Заявка на пропуск транспортный разовый',
     file: '/docs/security/Pril-14_Transp_Propusk_Raz.docx',
     type: 'doc',
+  },
+]
+
+const cerlicsvid = [
+  {
+    title: 'Сертификат соответствия системы менеджмента качества № 13.0227.026 от 18 января 2016 года.',
+    category: 'Сертификаты',
+    type: 'image',
+    file: certRus,
+  },
+  {
+    title: 'Обратная сторона сертификата соответствия системы менеджмента качества № 13.0227.026 от 18 января 2016 года.',
+    category: 'Сертификаты',
+    type: 'image',
+    file: annexRus,
+  },
+  {
+    title: 'Сертификат соответствия системы менеджмента качества № 13.0227.026 от 18 января 2016 года. (англ.)',
+    category: 'Сертификаты',
+    type: 'image',
+    file: certRusTranslate,
+  },
+  {
+    title: 'Обратная сторона сертификата соответствия системы менеджмента качества № 13.0227.026 от 18 января 2016 года. (англ)',
+    category: 'Сертификаты',
+    type: 'image',
+    file: annexRusTranslate,
+  },
+  {
+    title: 'Сертификат соответствия № RU-16.0153.026 от 18 февраля 2016 года.',
+    category: 'Сертификаты',
+    type: 'image',
+    file: certEng,
+  },
+  {
+    title: 'Обратная сторона сертификата соответствия № RU-16.0153.026 от 18 февраля 2016 года.',
+    category: 'Сертификаты',
+    type: 'image',
+    file: annexEng,
+  },
+  {
+    title: 'Сертификат соответствия ВС № 16.842.026 от 08 сентября 2016 года.',
+    category: 'Сертификаты',
+    type: 'pdf',
+    file: oboroncert,
+  },
+  {
+    title: 'Свидетельство о соответствии предприятия требованиям Российского морского регистра судоходства № 08.00047.170 от 25.09.2008 г.',
+    category: 'Свидетельства',
+    type: 'image',
+    file: svid1,
+  },
+  {
+    title: 'Свидетельство о внесении в Национальный Реестр "Ведущие промышленные предприятия России - 2011" № 1040 от 12.12.2011г.',
+    category: 'Свидетельства',
+    type: 'image',
+    file: svidRegistry,
+  },
+  {
+    title: 'Свидетельство, удостоверяющее регистрацию юридического лица или индивидуального предпринимателя в качестве резидента свободного порта Владивосток.',
+    category: 'Свидетельства',
+    type: 'image',
+    file: svidResident,
+  },
+  {
+    title: 'Свидетельство о допуске к определенному виду или видам работ, которые оказывают влияние на безопасность объектов капитального строительства № 842.01-2014-2531001535-С-274 от 20.10.2014 г.',
+    category: 'Свидетельства',
+    type: 'pdf',
+    file: svidSro,
+  },
+
+  {
+    title: 'Лицензия на ремонт вооружений и военной техники. Серия 003135 №003278 ВВТ-Р от 06.08.2014г.',
+    category: 'Лицензии',
+    type: 'pdf',
+    file: licAmmo,
+  },
+  {
+    title: 'Лицензия на деятельность по осуществлению буксировок морским транспортом. Серия МТ-3 №001576 от 14.01.2015г. ',
+    category: 'Лицензии',
+    type: 'pdf',
+    file: licBuksir,
+  },
+  {
+    title: 'Лицензия на осуществление работ, связанных с использованием сведений, составляющих государственную тайну. Серия ГТ 0066992 №1293 от 20.02.2014г.',
+    category: 'Лицензии',
+    type: 'image',
+    file: licGostaina,
+  },
+  {
+    title: 'Лицензия на осуществление деятельности по транспортированию отходов IV класса опасности. Серия 025 №00239 от 08.08.2016г.',
+    category: 'Лицензии',
+    type: 'pdf',
+    file: licRests,
   },
 ]
 
@@ -487,15 +610,144 @@ function About() {
 
           <section id="productivity" className="about__detail">
             <h2 className="about__detail-title">Производительность труда и поддержка занятости</h2>
+
             <div className="about__info-block">
-              <p className="about__info-text">Раздел в разработке.</p>
+              <div className="about__media-wrap">
+                <div className="about__media-text">
+
+                  <p className="about__info-text">
+                    Славянский судоремонтный завод внедряет технологии бережливого производства, что позволяет сокращать сроки изготовления продукции,
+                    уменьшать количество брака и повышать общую эффективность работы предприятия. В этом заводчанам помогают эксперты Федерального центра компетенций.
+                  </p>
+
+                  <p className="about__info-text">
+                    ПАО «Славянский судоремонтный завод» присоединилось к национальному проекту «Производительность труда и поддержка занятости».
+                    Работа проходит в три этапа: сначала проводится анализ потерь и слабых мест, затем внедряются инструменты бережливого производства,
+                    и далее — масштабирование результатов.
+                  </p>
+
+                  <h3 className="about__info-subtitle">Внедрение бережливого производства</h3>
+
+                  <p className="about__info-text">
+                    Специалисты завода совместно с экспертами выявили узкие места в производственных процессах и разработали план их устранения.
+                    Были внедрены инструменты производственного анализа, а также современные подходы к организации труда.
+                  </p>
+
+                  <p className="about__info-text">
+                    По словам руководства предприятия, реализация программы позволяет увеличивать производительность труда примерно на 5% ежегодно.
+                    Это дает возможность снижать себестоимость продукции, повышать конкурентоспособность и улучшать условия для сотрудников.
+                  </p>
+
+                  <h3 className="about__info-subtitle">Обучение и развитие персонала</h3>
+
+                  <p className="about__info-text">
+                    В рамках проекта сотрудники проходят обучение при поддержке Федерального центра компетенций. Уже более 30 человек приняли участие
+                    в тренингах, а также ведется подготовка внутренних бизнес-тренеров для дальнейшего развития персонала.
+                  </p>
+
+                  <h3 className="about__info-subtitle">Эталонный участок</h3>
+
+                  <p className="about__info-text">
+                    В качестве пилотного проекта был выбран цех металлоконструкций — один из наиболее трудоемких участков. Здесь внедрены стандарты
+                    бережливого производства и создан эталонный участок.
+                  </p>
+
+                  <p className="about__info-text">
+                    Производственные зоны были структурированы: каждая секция отвечает за конкретные заготовки, что позволяет быстро отслеживать
+                    нехватку материалов и оперативно реагировать на нее.
+                  </p>
+
+                  <p className="about__info-text">
+                    Также внедрены доски планирования, которые помогают контролировать выполнение задач, повышают прозрачность процессов и
+                    дисциплину на производстве.
+                  </p>
+
+                  <h3 className="about__info-subtitle">Результаты</h3>
+
+                  <p className="about__info-text">
+                    Новая система позволила значительно упорядочить работу: детали теперь хранятся по секциям и комплектам, что сокращает время
+                    их поиска и выдачи. Введены сменно-суточные задания, а также ежедневный анализ результатов.
+                  </p>
+
+                  <p className="about__info-text">
+                    Это не только ускоряет производственные процессы, но и снижает трудозатраты, повышая общую эффективность работы предприятия.
+                  </p>
+
+                  <h3 className="about__info-subtitle">Дальнейшее развитие</h3>
+
+                  <p className="about__info-text">
+                    В настоящее время проект находится на завершающей стадии. В случае успешного завершения предприятие получает доступ к
+                    льготному финансированию, а накопленный опыт будет распространяться на все производственные участки завода.
+                  </p>
+
+                </div>
+
+                <div className="about__figure-column">
+                  {[fcc17, fcc03, fcc10, fcc11, fcc12].map((img, i) => (
+                    <figure
+                      key={i}
+                      className="about__figure"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => openLightbox(img)}
+                      onKeyDown={(e) => (e.key === 'Enter' ? openLightbox(img) : null)}
+                    >
+                      <img src={img} alt={`Производственный процесс ${i + 1}`} />
+                    </figure>
+                  ))}
+                </div>
+              </div>
+              <div className="about__gallery-grid">
+                {[fcc21, fcc26, fcc27, fcc22, fcc07, fcc05].map((img, i) => (
+                  <figure
+                    key={i}
+                    className="about__figure"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openLightbox(img)}
+                    onKeyDown={(e) => (e.key === 'Enter' ? openLightbox(img) : null)}
+                  >
+                    <img src={img} alt={`Производственный процесс ${i + 6}`} />
+                  </figure>
+                ))}
+              </div>
             </div>
           </section>
 
           <section id="quality" className="about__detail">
             <h2 className="about__detail-title">Система менеджмента качества</h2>
+
             <div className="about__info-block">
-              <p className="about__info-text">Раздел в разработке.</p>
+              <p className="about__info-text">
+                Ниже представлены сертификаты, лицензии и свидетельства предприятия.
+              </p>
+
+              <div className="about__docs-grid">
+                {cerlicsvid.map((doc, i) => (
+                  <div
+                    key={i}
+                    className="about__doc-card"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => {
+                      if (doc.type === 'image') {
+                        openLightbox(doc.file, doc.title)
+                      } else {
+                        window.open(doc.file, '_blank')
+                      }
+                    }}
+                  >
+                    {doc.type === 'image' ? (
+                      <img src={doc.file} alt={doc.title} />
+                    ) : (
+                      <div className="about__doc-pdf">PDF</div>
+                    )}
+
+                    <div className="about__doc-title">{doc.title}</div>
+                    <div className="about__doc-category">{doc.category}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         </section>
