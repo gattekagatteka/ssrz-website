@@ -59,7 +59,6 @@ function Opportunities() {
     handleSlideChange((currentSlide - 1 + sliderImages.length) % sliderImages.length)
   }
 
-  // Mouse drag
   const handleMouseDown = (e: React.MouseEvent) => {
     isDraggingRef.current = true
     startXRef.current = e.clientX
@@ -86,7 +85,6 @@ function Opportunities() {
     }
   }
 
-  // Touch swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     isDraggingRef.current = true
     startXRef.current = e.touches[0].clientX
