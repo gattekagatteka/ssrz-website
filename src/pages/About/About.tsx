@@ -67,67 +67,67 @@ const policies = [
 const documents = [
   {
     title: 'Инструкция о пропускном и объектовом режиме',
-    file: '/docs/security/Instruction.pdf',
+    file: `${import.meta.env.BASE_URL}/security/Instruction.pdf`,
     type: 'pdf',
   },
   {
     title: 'Правила допуска на объект транспортной инфраструктуры ПАО "Славянский СРЗ" от 02.06.2017 г.',
-    file: '/docs/security/Admission_Rules.pdf',
+    file: `${import.meta.env.BASE_URL}/security/Admission_Rules.pdf`,
     type: 'pdf',
   },
   {
     title: 'Приказ ДВТУ Росграницы № 154 от 19.10.2015',
-    file: '/docs/security/Prikaz_DVTU_RG_154_20151019.pdf',
+    file: `${import.meta.env.BASE_URL}/security/Prikaz_DVTU_RG_154_20151019.pdf`,
     type: 'pdf',
   },
   {
     title: 'Приказ № 220 от 02.06.2017 об утверждении Правил допуска на объект транспортной инфраструктуры',
-    file: '/docs/security/Prikaz_220_20170602.pdf',
+    file: `${import.meta.env.BASE_URL}/security/Prikaz_220_20170602.pdf`,
     type: 'pdf',
   },
   {
     title: 'Приказ № 345 от 24.10.2019 О внесении изменений в Правила допуска',
-    file: '/docs/security/Prikaz_345_20191024.pdf',
+    file: `${import.meta.env.BASE_URL}/security/Prikaz_345_20191024.pdf`,
     type: 'pdf',
   },
   {
     title: 'Приказ Росграницы № 451-ОД от 27.12.2010',
-    file: '/docs/security/Prikaz_RG_451_20101227.docx',
+    file: `${import.meta.env.BASE_URL}/security/Prikaz_RG_451_20101227.docx`,
     type: 'doc',
   },
   {
     title: 'Заявка на материальный пропуск',
-    file: '/docs/security/Mat_Propusk.docx',
+    file: `${import.meta.env.BASE_URL}/security/Mat_Propusk.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 9 - Заявка на выдачу материального пропуска на ввоз-вывоз ТМЦ',
-    file: '/docs/security/Pril-9_Mat_Propusk.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-9_Mat_Propusk.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 10 - Заявка на пропуск личный постоянный или временный',
-    file: '/docs/security/Pril-10_Lichn_Propusk_Post_Vrem.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-10_Lichn_Propusk_Post_Vrem.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 11 - Заявка на пропуск личный разовый',
-    file: '/docs/security/Pril-11_Lichn_Propusk_Raz.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-11_Lichn_Propusk_Raz.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 12 - Заявка на выдачу материального пропуска предметов и веществ',
-    file: '/docs/security/Pril-12_Mat_Propusk.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-12_Mat_Propusk.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 13 - Заявка на пропуск транспортный постоянный или временный',
-    file: '/docs/security/Pril-13_Transp_Propusk_Post_Vrem.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-13_Transp_Propusk_Post_Vrem.docx`,
     type: 'doc',
   },
   {
     title: 'Приложение 14 - Заявка на пропуск транспортный разовый',
-    file: '/docs/security/Pril-14_Transp_Propusk_Raz.docx',
+    file: `${import.meta.env.BASE_URL}/security/Pril-14_Transp_Propusk_Raz.docx`,
     type: 'doc',
   },
 ]
