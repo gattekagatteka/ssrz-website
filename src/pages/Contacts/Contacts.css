@@ -296,7 +296,6 @@
   text-decoration: underline;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .contacts__nav-section {
     padding: 16px 20px;

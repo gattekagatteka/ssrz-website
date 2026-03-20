@@ -251,6 +251,7 @@
   padding: 24px 40px;
   text-align: center;
   user-select: none;
+  height: 401px;
 }
 
 .opportunities__slider-container {
@@ -296,6 +297,7 @@
   font-weight: 600;
   color: #213547;
   line-height: 1.4;
+  height: 52px;
 }
 
 .opportunities__slider-controls {
@@ -353,7 +355,6 @@
   background-color: #999;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .opportunities__content {
     padding: 32px 16px;
