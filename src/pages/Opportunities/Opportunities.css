@@ -251,7 +251,6 @@
   padding: 24px 40px;
   text-align: center;
   user-select: none;
-  height: 401px;
 }
 
 .opportunities__slider-container {
@@ -363,6 +362,7 @@
   .opportunities__title {
     font-size: 24px;
     margin-bottom: 24px;
+    height: 52px;
   }
 
   .opportunities__nav-section {
@@ -399,6 +399,7 @@
 
   .opportunities__slider {
     padding: 16px 24px;
+    height: 401px;
   }
 
   .opportunities__slider-btn {
@@ -434,6 +435,7 @@
 
   .opportunities__title {
     font-size: 20px;
+    height: 52px;
   }
 
   .opportunities__detail-title {
@@ -450,6 +452,7 @@
 
   .opportunities__slider {
     padding: 12px 16px;
+    height: 401px;
   }
 
   .opportunities__slider-btn {
